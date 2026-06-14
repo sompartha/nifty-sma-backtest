@@ -1,70 +1,39 @@
-# NIFTY SMA Crossover Strategy Backtest
+# 📈 NIFTY SMA Crossover Backtest Dashboard
 
-## Overview
+A quantitative trading strategy on the NIFTY 50 index using a 20-day and 50-day Simple Moving Average (SMA) crossover.
 
-This project implements a quantitative trading strategy on the NIFTY 50 Index using a Simple Moving Average (SMA) crossover system.
+## 🚀 Live Dashboard
 
-The strategy generates buy signals when the 20-day SMA crosses above the 50-day SMA and exits when the condition is no longer satisfied.
+https://nifty-sma-backtest-kxa2y274la2jr6c3tg2f5r.streamlit.app/
 
-The project includes:
+## 📊 Strategy Overview
 
-* Walk-forward testing
-* Transaction costs
-* Buy & Hold benchmark comparison
-* Sharpe Ratio analysis
-* Maximum Drawdown analysis
-* Trade statistics
-* Performance visualization
+This project implements a trend-following strategy based on SMA crossovers:
 
----
+* Buy when SMA20 crosses above SMA50
+* Sell when SMA20 crosses below SMA50
+* Includes transaction costs
+* Walk-forward testing to reduce overfitting
+* Comparison against Buy & Hold benchmark
 
-## Strategy Logic
+## 🛠 Tech Stack
 
-### Buy Signal
+* Python
+* Pandas
+* NumPy
+* Matplotlib
+* Streamlit
+* Yahoo Finance (yfinance)
 
-20-Day SMA > 50-Day SMA
+## 📈 Performance Metrics
 
-### Exit Signal
-
-20-Day SMA <= 50-Day SMA
-
-Positions are shifted by one day to avoid look-ahead bias.
-
----
-
-## Data Source
-
-NIFTY 50 historical data downloaded using Yahoo Finance (`yfinance`).
-
-Period:
-
-2010-01-01 to 2025-01-01
-
----
-
-## Walk-Forward Testing
-
-Training Period:
-
-2010 - 2020
-
-Testing Period:
-
-2021 - 2025
-
-This helps evaluate out-of-sample performance and reduces the risk of overfitting.
-
----
-
-## Performance Results
-
-### Training Period (2010-2020)
+### Train Period (2010–2020)
 
 * Total Return: 119.37%
 * Sharpe Ratio: 0.7140
 * Maximum Drawdown: -28.95%
 
-### Testing Period (2021-2025)
+### Test Period (2021–2025)
 
 * Total Return: 25.49%
 * Buy & Hold Return: 68.67%
@@ -72,50 +41,75 @@ This helps evaluate out-of-sample performance and reduces the risk of overfittin
 * Maximum Drawdown: -20.17%
 * Number of Trades: 19
 
----
+## 📉 Dashboard Features
 
-## Generated Outputs
+* Current NIFTY Price
+* Trading Signal (BUY/SELL)
+* Sharpe Ratio
+* Maximum Drawdown
+* Total Return
+* Number of Trades
+* Equity Curve
+* Drawdown Curve
+* Buy & Hold Benchmark
+* Recent Trading Signals
 
-* equity_curve.png
-* drawdown_curve.png
-* performance_report.csv
-
----
-
-## Project Structure
+## 📂 Project Structure
 
 nifty-sma-backtest/
 
-data/
-src/
-results/
-main.py
-README.md
+├── data/
 
----
+│   └── nifty50.csv
 
-## Future Improvements
+├── results/
+
+│   ├── equity_curve.png
+
+│   ├── drawdown_curve.png
+
+│   └── performance_report.csv
+
+├── src/
+
+│   ├── backtester.py
+
+│   ├── indicators.py
+
+│   ├── strategy.py
+
+│   ├── metrics.py
+
+│   ├── drawdown.py
+
+│   ├── trade_stats.py
+
+│   └── plotter.py
+
+├── app.py
+
+├── main.py
+
+├── requirements.txt
+
+└── README.md
+
+## ▶️ Run Locally
+
+```bash
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+## 📌 Future Improvements
 
 * Parameter optimization
-* Additional technical indicators
+* Multi-asset backtesting
 * Risk-adjusted position sizing
-* Machine learning based forecasting
-* Options-based strategies
-* Streamlit dashboard
+* Portfolio-level backtesting
+* Factor investing strategies
 
----
-
-## Technologies Used
-
-* Python
-* Pandas
-* NumPy
-* Matplotlib
-* Yahoo Finance (yfinance)
-
----
-
-## Author
+## 👨‍💻 Author
 
 Sompartha Sinha
 
